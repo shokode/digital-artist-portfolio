@@ -1,0 +1,619 @@
+/* =================================================
+   Root variables
+================================================= */
+
+/* Light mode (default) */
+:root {
+  /* Fonts */
+--font-en: "Inter", system-ui, -apple-system, sans-serif;
+--font-jp: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+
+
+  /* Backgrounds */
+  --bg-main: #faf9f7;   /* Hero / 明るい */
+  --bg-sub: #f1f0ed;    /* 交互セクション */
+  /* --bg-header: #c3b48a; Header */
+
+  /* Text */
+  --text-main: #3b3b3d;
+  --text-sub: #505255;
+
+  /* Accent */
+  --accent: #c3b48a;
+}
+
+/* Dark mode */
+.dark {
+  --bg-main: #494748;
+  --bg-sub: #3f3e3d;
+  /* --bg-header: #c3b48a; */
+
+  --text-main: #f7f7f7;
+  --text-sub: rgba(247, 247, 247, 0.7);
+
+  --accent: #c3b48a;
+}
+
+:root {
+  /* =====================
+     Button – base
+  ===================== */
+  --btn-radius: 999px;
+  --btn-transition: 0.18s ease-out;
+
+  /* Secondary button (ring) */
+  --btn-ring-bg: rgba(255, 255, 255, 0.65);
+  --btn-ring-text: #1f1f1f;
+  --btn-ring-border: #1f1f1f;
+  --btn-ring-hover-y: -2px;
+
+   /* Button motion */
+  --btn-move-fast: 0.12s cubic-bezier(.2,.8,.2,1);
+  --btn-color-fast: 0.16s ease-out;
+
+  /* emphasis */
+  --btn-hover-y: -3px;
+  --btn-hover-scale: 1.04;
+
+  /* Primary CTA */
+  --btn-cta-hover-y: -4px;
+  --btn-cta-shadow: 0 10px 26px rgba(0,0,0,0.25);
+}
+
+/* Dark mode override */
+.dark {
+  --btn-ring-bg: var(--accent);
+  --btn-ring-text: #2b2b2b;
+  --btn-ring-border: rgba(255, 255, 255, 0.9);
+
+}
+/* Dark mode: shuffle button */
+.dark #shuffleBtn {
+  color: #1f1f1f;                      /* 中の文字色 */
+  background-color: rgba(255,255,255,0.85);
+  border-color: rgba(255,255,255,0.9);
+}
+
+.dark #shuffleBtn:hover {
+  background-color: rgba(255,255,255,0.95);
+}
+
+
+
+.ring-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 55px;
+  padding: 0.6rem 1.4rem;
+
+  border-radius: 999px;
+  border: 1px solid var(--btn-ring-border);
+
+  background-color: var(--btn-ring-bg);
+  color: var(--btn-ring-text);
+  text-decoration: none;
+
+  transition:
+    transform var(--btn-move-fast),
+    background-color var(--btn-color-fast),
+    color var(--btn-color-fast),
+    border-color var(--btn-color-fast),
+    box-shadow var(--btn-color-fast);
+}
+
+.ring-btn:hover {
+  transform:
+    translateY(var(--btn-hover-y))
+    scale(var(--btn-hover-scale));
+
+  background-color: var(--accent);
+  color: #1f1f1f;
+  border-color: var(--accent);
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+.hero-cta,
+.final-cta-btn {
+  display: inline-block;
+  padding: 0.9rem 2.4rem;
+
+  border-radius: var(--btn-radius);
+  border: 1px solid var(--accent);
+
+  background-color: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+
+  transition:
+    transform var(--btn-transition),
+    background-color var(--btn-transition),
+    box-shadow var(--btn-transition),
+    color var(--btn-transition);
+}
+
+.hero-cta:hover,
+.final-cta-btn:hover {
+  transform: translateY(var(--btn-cta-hover-y));
+  background-color: var(--accent);
+  color: var(--bg-main);
+  box-shadow: var(--btn-cta-shadow);
+}
+
+
+
+
+/* =====================
+   Base
+===================== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-en);
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.jp { 
+  font-family: var(--font-jp);
+  font-size: 0.7rem; 
+  color: var(--text-sub);
+}
+
+/* =====================
+   Global image rounding
+===================== */
+
+.work-item img,
+.platform-image img,
+.hero-image img {
+  border-radius: 16px;
+}
+
+/* =================================================
+   Background helpers
+================================================= */
+
+.bg-header {
+  background-color: var(--bg-header);
+}
+
+.bg-main {
+  background-color: var(--bg-main);
+}
+
+.bg-sub {
+  background-color: var(--bg-sub);
+}
+
+
+/* =================================================
+   Header / Theme toggle
+================================================= */
+
+.site-header {
+  padding: 1rem 5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;              /* ← 押しやすさ */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.theme-toggle img {
+  width: 50px;
+  height: 50px;              /* ← 正円にする */
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover img {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/* =====================
+   Hero
+===================== */
+
+.section-title {
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.hero-name {
+  font-size: 2.3rem;
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.hero-name-en {
+  display: block;
+  margin: 0.06rem 0 0;   /* ← ここで距離を詰める */
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: var(--text-sub);
+  line-height: 1.2;
+}
+.hero-name-jp {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+/* Hero text alignment stability */
+.hero-text {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-text .jp {
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+.hero-image img {
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.6rem;
+
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+
+  background-color: transparent;
+  color: var(--text-main);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+
+  transition:
+    transform var(--btn-transition),
+    background-color var(--btn-transition),
+    box-shadow var(--btn-transition),
+    color var(--btn-transition);
+}
+
+.hero-cta:hover {
+  transform: translateY(var(--btn-cta-hover-y));
+  background-color: var(--accent);
+  color: var(--bg-main);
+  box-shadow: var(--btn-cta-shadow);
+}
+
+
+/* =====================
+   Works
+===================== */
+.works {
+  padding-bottom: 6rem;
+}
+
+.section-title {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.section-sub {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;          /* ← 小さめ */
+  letter-spacing: 0.15em;     /* ← 空気感 */
+  color: var(--text-sub);
+}
+
+.jp {
+  font-family: var(--font-jp);
+}
+
+.work-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #eee; /* ロード中の保険 */
+}
+
+.work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.6;
+  filter: grayscale(30%);
+  transition:
+    opacity 0.25s ease,
+    filter 0.25s ease,
+    object-fit 0.25s ease;
+}
+
+
+.work-item img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.02);
+  object-fit: contain;
+  
+}
+/* =====================
+   View more
+===================== */
+#shuffleBtn {
+margin-top: 1rem;
+padding-top: 5px;
+padding-left: 2.5px;
+padding-right: 2.5px;
+color: var(--text-sub);
+}
+
+#shuffleBtn:hover{
+background-color: #f6f7eb;
+}
+
+.view-more {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.view-more-label {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: var(--text-sub);
+  margin-bottom: 1.5rem;
+}
+
+.view-more-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+
+/* =================================================
+   Other Platforms
+================================================= */
+
+.other-platforms {
+  padding: 4rem 0;
+}
+
+.platform-card {
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+}
+
+.platform-image img {
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* Platform Card */
+
+.platform-card {
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+  padding: 2rem 1.5rem;
+  
+}
+
+/* image */
+.platform-image {
+  text-align: center;
+}
+
+.platform-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* text */
+.platform-text {
+  text-box-trim: trim-start;
+  text-box-edge: cap text;
+  
+}
+.platform-text .jp {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.platform-text h4 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.platform-text p {
+  margin-bottom: 1.4rem;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+.platform-card:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+}
+
+.dark .platform-card:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+
+
+
+
+/* =====================
+   Final CTA (skeb)
+===================== */
+
+.final-cta {
+  padding: 6rem 0;
+}
+
+.final-cta-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.final-cta-text {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  margin-bottom: 2.5rem;
+}
+
+
+.final-cta-note {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
+.final-cta-btn {
+  color: var(--text-main);
+}
+/* =================================================
+   Responsive (Global)
+================================================= */
+
+@media (max-width: 768px) {
+  .platform-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .platform-image img {
+    max-width: 260px;
+    margin-bottom: 1.25rem;
+  }
+}
+/* =====================
+   Tablet & down (<= 1199px)
+   余白調整ゾーン
+===================== */
+@media (max-width: 1199.98px) {
+  .hero-text {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+
+/* =====================
+   Tablet vertical (<= 991px)
+   縦並び前提
+===================== */
+@media (max-width: 991.98px) {
+
+  /* ---------- Hero ---------- */
+  .hero-text {
+    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  h2.hero-role {
+    margin-top: 0;
+  }
+  .hero-cta {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-sub {
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+  }
+
+  /* ---------- Works ---------- */
+  .works .section-title,
+  .works .section-sub {
+    text-align: center;
+  }
+
+  /* ---------- Other platforms ---------- */
+  .platform-text {
+    text-align: center;
+  }
+
+  .platform-text .ring-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* =====================
+   Mobile (<= 767px)
+===================== */
+@media (max-width: 767.98px) and (hover: none) {
+
+  .work-item img {
+    opacity: 1;
+    filter: none;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-image img {
+    max-width: 180px;
+  }
+
+  /* ---------- Platform cards ---------- */
+    .platform-card {
+    margin: 0 1rem 1rem;
+    padding: 1.5rem 1.25rem;
+    border: 1px solid rgba(0,0,0,0.10);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.35);
+  }
+
+  .dark .platform-card {
+    border-color: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+  }
+
+  .platform-image img {
+    max-width: 260px;
+    margin-bottom: 1.25rem;
+  }
+}

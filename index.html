@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amawashi – Illustrator</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+<!-- =================================================
+  Header
+================================================= -->
+<header class="site-header bg-header">
+  <div class="theme-toggle" id="themeToggle">
+    <img src="./img/AMWSdarkpng.png" alt="Toggle dark mode" id="themeIcon">
+  </div>
+</header>
+
+<!-- =================================================
+  Hero
+================================================= -->
+<section class="hero py-5">
+  <div class="container">
+  <div class="row align-items-center g-4">
+
+  <!-- Text block -->
+  <div class="col-md-6 hero-text fade-up">
+
+    <p class="hero-reading jp" style="transition-delay: 0.05s">
+    </p>
+    <h1 class="hero-name" style="transition-delay: 0.1s">
+      天 鷲<br>
+      <span class="hero-name-en">Amawashi</span>
+    </h1>
+
+    <h2 class="hero-role" style="transition-delay: 0.2s">
+      Illustrator / Visual Artist
+    </h2><p>for icons, banners, and goods.<br></p>
+
+    <p class="hero-description" style="transition-delay: 0.3s">
+      
+      <span class="jp"> 二次元創作を中心にジャンルを問わず アイコン・バナー制作、グッズ販売をしております</span>
+    </p>
+
+    <a
+      href="https://skeb.jp/@USERNAME"
+      class="btn hero-cta"
+
+    >
+      Request Illustration
+    </a>
+
+    <p class="hero-sub" style="transition-delay: 0.5s">
+     via skeb
+    </p>
+
+  </div>
+
+  <!-- Image -->
+  <div class="col-md-6 hero-image fade-up" style="transition-delay: 0.2s">
+    <img src="./img/AMWS2png.png" alt="Amawashi illustration" id="heroImage">
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+<!-- =================================================
+  Works
+================================================= -->
+<section class="works bg-sub">
+  <div class="container py-5">
+
+    <header class="text-center mb-4 fade-up">
+      <h3 class="section-title">
+        Works<br>
+        <span class="section-sub">作品一覧</span>
+          <button id="shuffleBtn" class="ring-btn" aria-label="shuffle">↺</button>
+      </h3>
+    </header>
+
+    <!-- JS がここに画像を生成する -->
+    <div class="row g-4" id="worksGrid"></div>
+
+    <!-- View more -->
+    <div class="view-more fade-up">
+
+
+      <p class="view-more-label">View more</p>
+      <div class="view-more-links">
+        <a href="#" class="ring-btn">Pixiv</a>
+        <a href="#" class="ring-btn">skeb</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =================================================
+  Other Platforms
+================================================= -->
+<section class="other-platforms bg-main">
+  <div class="container">
+
+    <header class="text-center mb-5 fade-up">
+      <h3 class="section-title">
+        Other Platforms<br>
+        <span class="section-sub">Support / Shops</span>
+      </h3>
+    </header>
+
+    <!-- Card -->
+    <div class="platform-card fade-up" style="transition-delay: 0.1s">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-6 platform-image">
+          <img src="./img/work_08.png" alt="">
+        </div>
+        <div class="col-12 col-md-6 platform-text">
+          <h4>Support my work</h4>
+            <p>
+            Ongoing illustration projects<br>
+            <span class="jp">イラスト制作を応援</span>
+            </p>
+
+          
+          <a href="https://ko-fi.com/piyopurehchan" class="ring-btn">Ko-fi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="platform-card fade-up" style="transition-delay: 0.2s">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-6 platform-image">
+          <img src="./img/Rectangle 2.png" alt="">
+        </div>
+        <div class="col-12 col-md-6 platform-text">
+          <h4>Earring shop</h4>
+          <p>
+            Handmade accessories<br>
+            <span class="jp">天然石が好きでピアス作りもしてます<br>
+            レース編みもしてます</span>
+            </p>
+          <a href="#" class="ring-btn">minne</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="platform-card fade-up" style="transition-delay: 0.3s">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-6 platform-image">
+          <img src="./img/GIF.gif" alt="">
+        </div>
+        <div class="col-12 col-md-6 platform-text">
+          <h4>KUMA shop</h4>
+          <p>Kuma goods here
+            <span class="jp">クマちゃんグッズ</span>
+          </p>
+          <a href="#" class="ring-btn">view / follow</a>
+        </div>
+      </div>
+    </div> -->
+    <div class="platform-card fade-up" style="transition-delay: 0.4s">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-6 platform-image">
+          <img src="./img/suzurishop.png" alt="">
+        </div>
+        <div class="col-12 col-md-6 platform-text">
+          <h4>KUMA shop</h4>
+          <p>Kuma goods here
+            <span class="jp">クマちゃんグッズ</span>
+          </p>
+          <a href="https://suzuri.jp/housekikumachan" class="ring-btn">Suzuri</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="platform-card fade-up" style="transition-delay: 0.5s">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-6 platform-image">
+          <img src="./img/172-1.png" alt="">
+        </div>
+        <div class="col-12 col-md-6 platform-text">
+          <h4>Mr. Entertainment <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="66" d="M16 3c2.76 0 5 2.24 5 5v8c0 2.76 -2.24 5 -5 5h-8c-2.76 0 -5 -2.24 -5 -5v-8c0 -2.76 2.24 -5 5 -5h4Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="66;0"/></path><path stroke-dasharray="28" stroke-dashoffset="28" d="M12 8c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.6s" to="0"/></path></g><circle cx="17" cy="7" r="1.5" fill="currentColor" opacity="0"><animate fill="freeze" attributeName="opacity" begin="1.3s" dur="0.2s" to="1"/></circle></svg></h4>
+          <p>
+            <span class="jp">view / follow 愉快なミスターエンターテイメント</span>
+          </p>
+          <a href="https://www.instagram.com/mr.entertainment1111?igsh=MXJlejhqMzh5bnZ3aw==" class="ring-btn">instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="platform-card fade-up" style="transition-delay: 0.6s">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-md-6 platform-image">
+          <img src="./img/196.png" alt="">
+        </div>
+        <div class="col-12 col-md-6 platform-text">
+          <h4>Jewelry Kuma-chan <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="66" d="M16 3c2.76 0 5 2.24 5 5v8c0 2.76 -2.24 5 -5 5h-8c-2.76 0 -5 -2.24 -5 -5v-8c0 -2.76 2.24 -5 5 -5h4Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="66;0"/></path><path stroke-dasharray="28" stroke-dashoffset="28" d="M12 8c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.6s" to="0"/></path></g><circle cx="17" cy="7" r="1.5" fill="currentColor" opacity="0"><animate fill="freeze" attributeName="opacity" begin="1.3s" dur="0.2s" to="1"/></circle></svg></h4>
+          <p>
+            <span class="jp">view / follow 宝石クマちゃん </span>
+          </p>
+          <a href="https://www.instagram.com/housekikumachan?igsh=MXkxenB6enNlNDBzYQ==" class="ring-btn">instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================
+  Final CTA
+================================================= -->
+<section class="final-cta bg-sub">
+  <div class="container text-center">
+    <h3 class="final-cta-title fade-up">Request Illustration</h3>
+    <p class="final-cta-text">
+      Available for illustration commissions.<br>
+      Please request via skeb / DM.<br>
+       <span class="jp">イラストのご依頼は skeb / DMからお願いします</span>
+    </p>
+    <a href="https://skeb.jp/@USERNAME" class="final-cta-btn">
+      Request on skeb
+    </a>
+  </div>
+</section>
+
+<script src="./app.js"></script>
+</body>
+</html>
